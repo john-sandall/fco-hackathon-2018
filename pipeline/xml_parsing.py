@@ -48,7 +48,7 @@ for letter in letters:
             if seg.has_attr('rs'):
                 seg_data['rs'] = seg.find('rs').text,
             elif len(seg.find_all('date')) > 0:
-                seg_data['rs'] = seg.text.replace(seg.find('date').text, '').replace(',', '').replace(' ', '')
+                seg_data['rs'] = seg.text.replace(seg.find('date').text, '').replace(',', '')
             seg_data['date'] = seg.find('date').text,
             seg_data['date_from'] = seg.find('date').get('from', ''),
             seg_data['date_to'] = seg.find('date').get('to', ''),
