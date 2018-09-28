@@ -17,7 +17,7 @@ for letter in letters:
         entry_data = {}
         persname = entry.find('persname')
         entry_data['persname'] = persname.text
-        print(persname.text)
+        # print(persname.text)
         if persname.has_attr('corresp'):
             corresp = persname['corresp']
         else:
@@ -46,12 +46,12 @@ for letter in letters:
         for seg in list(entry.find_all('seg')):
             seg_data = {}
             if seg.has_attr('rs'):
-                seg_data['rs'] = seg.find('rs').text,
+                seg_data['rs'] = seg.find('rs').text
             elif len(seg.find_all('date')) > 0:
                 seg_data['rs'] = seg.text.replace(seg.find('date').text, '').replace(',', '')
-            seg_data['date'] = seg.find('date').text,
-            seg_data['date_from'] = seg.find('date').get('from', ''),
-            seg_data['date_to'] = seg.find('date').get('to', ''),
+            seg_data['date'] = seg.find('date').text
+            seg_data['date_from'] = seg.find('date').get('from', '')
+            seg_data['date_to'] = seg.find('date').get('to', '')
             entry_data['seg'] += [seg_data]
         data += [entry_data]
 
