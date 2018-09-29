@@ -5,7 +5,7 @@ from string import strip
 import numpy as np
 import csv
 
-data = json.load(open('section_a.json'))
+data = json.load(open('../section_a.json'))
 
 roles = set()
 
@@ -76,7 +76,7 @@ for role in roles:
 #        print score,numFrom,numTo,np.mean(roleTimes[role])
     if not np.isnan(score):
 #        roleScores.append([score,role,numFrom,numTo,aveYearsSpentInRole,aveCareerProportionInRole])
-        roleScores.append([score,len(roleTimes[role]),numTo,numFrom,sum(roleTimes[role]),aveYearsSpentInRole,aveCareerProportionInRole,role.encode('utf-8'),])
+        roleScores.append([score,len(roleTimes[role]),numTo,numFrom,sum(roleTimes[role]),aveYearsSpentInRole,100*aveCareerProportionInRole,role.encode('utf-8'),])
 
 roleScores.sort(reverse=True)
 csvout.writerows(roleScores)
